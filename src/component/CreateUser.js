@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function CreateUser({ username, email, onChange, onCreate }) {
+export default function CreateUser({ username, email, onChange, onCreate}) {
     return (
         <div>
             <input
