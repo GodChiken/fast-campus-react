@@ -4,8 +4,8 @@ export default function UserList() {
     const users = [
         {
             id: 1,
-            username: 'velopert',
-            email: 'public.velopert@gmail.com'
+            username: 'godchiken',
+            email: 'godchiken@naver.com'
         },
         {
             id: 2,
