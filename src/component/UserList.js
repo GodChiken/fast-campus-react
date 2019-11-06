@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useRef} from 'react';
 
 function User({user}) {
     return (
@@ -13,7 +13,7 @@ export default function UserList() {
         {
             id: 1,
             username: 'godchiken',
-            email: 'godchiken@naver.com'
+            email: 'public.velopert@gmail.com'
         },
         {
             id: 2,
@@ -26,6 +26,10 @@ export default function UserList() {
             email: 'liz@example.com'
         }
     ];
+    const nextId = useRef(4);
+    const onCreate = () => {
+        nextId.current+=1;
+    };
     return (
         <div>
             {
