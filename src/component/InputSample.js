@@ -2,8 +2,8 @@ import React, {useState, useRef} from 'react'
 
 export default function InputSample() {
     const [inputs, setInputs] = useState({
-        name : '',
-        nickname : ''
+        name: '',
+        nickname: ''
     });
     const nameInputs = useRef();
     const {name, nickname} = inputs;
@@ -12,13 +12,13 @@ export default function InputSample() {
         const {value, name} = e.target;
         setInputs({
             ...inputs,
-            [name] : value
+            [name]: value
         })
     };
 
     const onReset = () => {
         setInputs({
-            name : '',
+            name: '',
             nickname: ''
         });
         nameInputs.current.focus();
