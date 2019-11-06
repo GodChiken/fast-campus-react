@@ -1,42 +1,19 @@
-import React,{useRef} from 'react';
+import React from 'react';
 
-function User({user}) {
+function User({ user }) {
     return (
         <div>
-            {user.username}({user.email})
+            <b>{user.username}</b> <span>({user.email})</span>
         </div>
     );
 }
 
-export default function UserList() {
-    const users = [
-        {
-            id: 1,
-            username: 'godchiken',
-            email: 'public.velopert@gmail.com'
-        },
-        {
-            id: 2,
-            username: 'tester',
-            email: 'tester@example.com'
-        },
-        {
-            id: 3,
-            username: 'liz',
-            email: 'liz@example.com'
-        }
-    ];
-    const nextId = useRef(4);
-    const onCreate = () => {
-        nextId.current+=1;
-    };
+export default function UserList({ users }) {
     return (
         <div>
-            {
-                users.map(user =>(
-                    <User user={user} key={user.id}/>
-                ))
-            }
+            {users.map(user => (
+                <User user={user} key={user.id} />
+            ))}
         </div>
     );
 }
