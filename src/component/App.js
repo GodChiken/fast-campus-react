@@ -46,7 +46,7 @@ export default function App() {
         setUsers([...users,user]);
         setInputs({ username : '', email: '' });
         nextId.current += 1;
-    },[inputs]);
+    },[users,username,email]);
     const onRemove = useCallback(id => {
         setUsers(users.filter(user => user.id !== id))
     },[users]);
