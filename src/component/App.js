@@ -51,16 +51,16 @@ export default function App() {
         setUsers(users => users.filter(user => user.id !== id))
     },[]);
     const onToggle = useCallback(id => {
-        setUsers(users => users.map(user =>
-                user.id === id
-                    ? {...user, active: !user.active}
-                    : user
-            )
-        )
+        setUsers(users => users.map(
+            user => user.id === id
+            ? {...user, active: !user.active}
+            : user
+        ));
     },[]);
     const count = useMemo( () => {
+        const activeUser = users.filter(user => user.active).length;
         console.log('활성 사용자 수를 세는중...');
-        return users.filter(user => user.active).length;
+        return activeUser;
     },[users]);
     return (
         <>
