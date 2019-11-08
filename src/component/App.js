@@ -10,11 +10,11 @@ export default function App() {
     const {username, email} = inputs;
     const onChange = useCallback(e => {
         const {value,name} = e.target;
-        setInputs({
+        setInputs(inputs => ({
             ...inputs,
             [name] : value
-        })
-    },[inputs]);
+        }))
+    },[]);
     const [users,setUsers] = useState([
         {
             id: 1,
@@ -43,21 +43,21 @@ export default function App() {
             username,
             email
         };
-        setUsers([...users,user]);
+        setUsers(users => [...users,user]);
         setInputs({ username : '', email: '' });
         nextId.current += 1;
-    },[users,username,email]);
+    },[username,email]);
     const onRemove = useCallback(id => {
-        setUsers(users.filter(user => user.id !== id))
-    },[users]);
+        setUsers(users => users.filter(user => user.id !== id))
+    },[]);
     const onToggle = useCallback(id => {
-        setUsers(users.map(user =>
+        setUsers(users => users.map(user =>
                 user.id === id
                     ? {...user, active: !user.active}
                     : user
             )
         )
-    },[users]);
+    },[]);
     const count = useMemo( () => {
         console.log('활성 사용자 수를 세는중...');
         return users.filter(user => user.active).length;
