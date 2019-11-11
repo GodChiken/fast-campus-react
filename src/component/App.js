@@ -1,6 +1,7 @@
 import React, {useRef, useReducer, useMemo, useCallback} from 'react';
 import UserList from "./UserList";
 import CreateUser from "./CreateUser";
+import useInputs from "../hooks/useInputs";
 
 const initialState = {
     inputs: {username: '', email: ''},
@@ -13,14 +14,6 @@ const initialState = {
 
 function reducer(state, action) {
     switch (action.type) {
-        case 'CHANGE_INPUT' :
-            return {
-                ...state,
-                inputs: {
-                    ...state.inputs,
-                    [action.name]: action.value
-                }
-            };
         case 'CREATE_USER' :
             return {
                 inputs: initialState.inputs,
@@ -44,17 +37,15 @@ function reducer(state, action) {
 }
 
 export default function App() {
+    const [{username, email}, onChange, reset] = useInputs(initialState.inputs);
     const [state, dispatch] = useReducer(reducer, initialState);
-    const {users} = state;
-    const {username, email} = state.inputs;
     const nextId = useRef(4);
+    const {users} = state;
 
-    const onChange = useCallback(e => {
-        const {value, name} = e.target;
+    const onToggle = useCallback(id => {
         dispatch({
-            type: 'CHANGE_INPUT',
-            name,
-            value
+            type: 'TOGGLE_USER',
+            id
         });
     }, []);
 
@@ -67,15 +58,9 @@ export default function App() {
                 email
             }
         });
+        reset();
         nextId.current++;
-    }, [username, email]);
-
-    const onToggle = useCallback(id => {
-        dispatch({
-            type: 'TOGGLE_USER',
-            id
-        })
-    }, []);
+    }, [username, email, reset]);
 
     const onRemove = useCallback(id => {
         dispatch({
