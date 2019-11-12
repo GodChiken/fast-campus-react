@@ -6,10 +6,10 @@ function reducer(state, action) {
         case 'FORM_CHANGE':
             return { ...state, [name] : value };
         case 'FORM_RESET':
-            const resetObject = {...state};
-            resetObject.username = '';
-            resetObject.email = '';
-            return resetObject;
+            return Object.keys(state).reduce((accumulator, currentValue) => {
+                accumulator[currentValue] = '';
+                return accumulator;
+            }, {});
         default : throw new Error("DO NOT ANYTHING");
     }
 }
