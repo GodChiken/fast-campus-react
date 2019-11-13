@@ -2,10 +2,7 @@ import React, {useContext} from 'react';
 import {UserDispatch} from "./App";
 
 const User = React.memo(function User({ user }) {
-    console.log("User Rendering");
-
     const dispatch = useContext(UserDispatch);
-
     return (
         <div>
             <b  style={{
@@ -31,7 +28,6 @@ const User = React.memo(function User({ user }) {
 });
 
 function UserList({ users }) {
-    console.log("UserList Rendering");
     return (
         <div>
             {users.map(user => (

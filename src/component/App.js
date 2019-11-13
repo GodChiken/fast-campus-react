@@ -1,10 +1,8 @@
-import React, {useRef, useReducer, useMemo, useCallback} from 'react';
+import React, {useReducer, useMemo} from 'react';
 import UserList from "./UserList";
 import CreateUser from "./CreateUser";
-import useInputs from "../hooks/useInputs";
 
 const initialState = {
-    inputs: {username: '', email: ''},
     users: [
         {id: 1, username: 'godchiken', email: 'godchiken@naver.com', active: true},
         {id: 2, username: 'tester', email: 'tester@example.com', active: false},
@@ -39,34 +37,14 @@ function reducer(state, action) {
 export const UserDispatch = React.createContext(null);
 
 export default function App() {
-    const [{username, email}, onChange, reset] = useInputs(initialState.inputs);
     const [state, dispatch] = useReducer(reducer, initialState);
-    const nextId = useRef(4);
     const {users} = state;
-
-    const onCreate = useCallback(() => {
-        dispatch({
-            type: 'CREATE_USER',
-            user: {
-                id: nextId.current,
-                username,
-                email
-            }
-        });
-        reset();
-        nextId.current++;
-    }, [username, email, reset]);
 
     const count = useMemo(() => users.filter(user => user.active).length, [users]);
 
     return (
         <UserDispatch.Provider value={dispatch}>
-            <CreateUser
-                username={username}
-                email={email}
-                onChange={onChange}
-                onCreate={onCreate}
-            />
+            <CreateUser/>
             <UserList users={users}/>
             <div>활성사용자 수 : {count}</div>
         </UserDispatch.Provider>
