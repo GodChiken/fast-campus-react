@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {UserDispatch} from "./App";
-
+// 테스트
 const User = React.memo(function User({ user }) {
     const dispatch = useContext(UserDispatch);
     return (
