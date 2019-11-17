@@ -5,7 +5,10 @@ const User = React.memo(function User({ user }) {
     const dispatch = useContext(UserDispatch);
     return (
         <div>
-            <b  style={{ cursor: 'pointer', color: user.active ? 'green' : 'black' }}
+            <b  style={{
+                cursor: 'pointer',
+                color: user.active ? 'green' : 'black'
+            }}
                 onClick={() => {
                     dispatch({type: 'TOGGLE_USER' , id: user.id});
                 }}
