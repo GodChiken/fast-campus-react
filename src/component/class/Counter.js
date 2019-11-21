@@ -2,21 +2,21 @@ import React, {Component} from 'react'
 
 export default class Counter extends Component{
 
-    handleIncrease = () => {
+    handleIncrease() {
         console.log('increase');
         console.log(this);
-    };
+    }
 
-    handleDecrease = () => {
+    handleDecrease() {
         console.log('decrease');
-    };
+    }
 
     render() {
         return (
             <div>
                 <h1>0</h1>
-                <button onClick={this.handleIncrease}>+1</button>
-                <button onClick={this.handleDecrease}>-1</button>
+                <button onClick={() => this.handleIncrease()}>+1</button>
+                <button onClick={() => this.handleDecrease()}>-1</button>
             </div>
         );
     }
