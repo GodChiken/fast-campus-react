@@ -1,22 +1,27 @@
 import React, {Component} from 'react'
 
-export default class Counter extends Component{
-
-    handleIncrease() {
+export default class Counter extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            counter: 0
+        };
+    }
+    handleIncrease = () => {
         console.log('increase');
         console.log(this);
-    }
+    };
 
-    handleDecrease() {
+    handleDecrease = () => {
         console.log('decrease');
-    }
+    };
 
     render() {
         return (
             <div>
-                <h1>0</h1>
-                <button onClick={() => this.handleIncrease()}>+1</button>
-                <button onClick={() => this.handleDecrease()}>-1</button>
+                <h1>{this.state.counter}</h1>
+                <button onClick={this.handleIncrease}>+1</button>
+                <button onClick={this.handleDecrease}>-1</button>
             </div>
         );
     }
