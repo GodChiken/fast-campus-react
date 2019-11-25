@@ -1,7 +1,10 @@
 import React, {Component} from 'react'
 
 export default class Counter extends Component {
-    state = { counter: 0, fixed: 1 };
+    state = {
+        counter: 0,
+        fixed: 1
+    };
     handleIncrease = () => {
         this.setState(
             {
