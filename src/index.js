@@ -1,10 +1,28 @@
-import React from 'react'
-import {render} from 'react-dom'
-import './index.css';
-import App from "./component/function/App";
-import Hello from "./component/class/Hello";
-import Counter from "./component/class/Counter";
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
 
-//render(<App/>,document.getElementById('root'));
-render(<Hello/>,document.getElementById('root'));
-render(<Counter/>,document.getElementById('root'));
+import "./styles.css";
+import LifeCycleSample from "./component/class/LifeCycleSample";
+
+function getRandomColor() {
+    return "#" + Math.floor(Math.random() * 16777215).toString(16);
+}
+
+function App() {
+    const [color, setColor] = useState("#000000");
+    const [visible, setVisible] = useState(true);
+
+    const onClick = () => { setColor(getRandomColor()); };
+    const onToggle = () => { setVisible(!visible); };
+
+    return (
+        <>
+            <button onClick={onClick}>랜덤 색상</button>
+            <button onClick={onToggle}>토글</button>
+            {visible && <LifeCycleSample color={color} />}
+        </>
+    );
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
