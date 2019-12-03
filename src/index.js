@@ -1,7 +1,6 @@
 import React from "react";
-import { render } from "react-dom";
 import "./css/styles.css";
-import ScrollBox from "./component/class/ScrollBox";
+import * as Sentry from "@sentry/browser";
 
-const App = () => <ScrollBox />;
-render(<App />, document.getElementById("root"));
+Sentry.init({dsn: "https://ae06363733c640dfa0c19ef206eacba2@sentry.io/1842911"});
+ReactDOM.render(<App />, document.getElementById('root'));
