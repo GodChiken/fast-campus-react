@@ -1,6 +1,7 @@
-import React from 'react'
-import {render} from 'react-dom'
-import './index.css';
-import App from "./component/App";
+import React from "react";
+import { render } from "react-dom";
+import "./css/styles.css";
+import ScrollBox from "./component/class/ScrollBox";
 
-render(<App/>,document.getElementById('root'));
+const App = () => <ScrollBox />;
+render(<App />, document.getElementById("root"));
