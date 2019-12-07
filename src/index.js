@@ -1,6 +1,8 @@
 import React from "react";
+import ReactDOM from  "react-dom";
 import "./css/styles.css";
 import * as Sentry from "@sentry/browser";
+import ErrorBoundary from "./component/class/ErrorBoundery";
 
 Sentry.init({dsn: "https://ae06363733c640dfa0c19ef206eacba2@sentry.io/1842911"});
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<ErrorBoundary />, document.getElementById('root'));
