@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/styles.css';
-import App from './style/sass/App';
+import Box from './style/cssmodule/Box';
+import App from './style/cssmodule/App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+//ReactDOM.render(<Box />, document.getElementById('root'));
+ReactDOM.render(<App/>,document.getElementById('root'));
