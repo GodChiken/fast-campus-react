@@ -9,5 +9,8 @@ const Circle = styled.div`
 `;
 
 export default function App() {
-    return <Circle color="blue"/>;
+    return <>
+        <Circle color="blue"/>
+        <Circle />
+        </>;
 }
