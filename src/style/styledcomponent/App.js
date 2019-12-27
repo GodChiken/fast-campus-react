@@ -1,21 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
+import styled from 'styled-components';
 
-import CheckBox from './CheckBox';
+const Circle = styled.div`
+  width: 5rem;
+  height: 5rem;
+  background: black;
+  border-radius: 50%;
+`;
 
 export default function App() {
-    const [check, setCheck] = useState(false);
-    const onChange = e => {
-        setCheck(e.target.checked);
-    };
-    return (
-        <div>
-            <CheckBox onChange={onChange} checked={check}>
-                다음 약관에 모두 동의
-            </CheckBox>
-            <p>
-                <b>check: </b>
-                {check ? 'true' : 'false'}
-            </p>
-        </div>
-    );
+    return <Circle />;
 }
