@@ -30,7 +30,7 @@ const StyledButton = styled.button`
   /* 기타 */
   & + & {
     margin-left: 1rem;
-  }
+  } 
 `;
 
 export default function Button({ children, ...rest }) {
