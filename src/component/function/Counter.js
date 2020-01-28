@@ -1,4 +1,4 @@
-import React, {useReducer} from 'react';
+import React, { useReducer } from 'react';
 
 function reducer(state, action) {
     switch (action.type) {
@@ -12,10 +12,14 @@ function reducer(state, action) {
 }
 
 export default function Counter() {
-    const [number, dispatch] = useReducer(reducer,0);
+    const [number, dispatch] = useReducer(reducer, 0);
 
-    const onIncrease = () => { dispatch({type:'INCREMENT'}); };
-    const onDecrease = () => { dispatch({type:'DECREMENT'}); };
+    const onIncrease = () => {
+        dispatch({ type: 'INCREMENT' });
+    };
+    const onDecrease = () => {
+        dispatch({ type: 'DECREMENT' });
+    };
 
     return (
         <div>

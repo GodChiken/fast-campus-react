@@ -1,25 +1,25 @@
-import React, {useContext} from 'react';
-import {UserDispatch} from "../../style/sass/App";
+import React, { useContext } from 'react';
+import { UserDispatch } from '../../style/sass/App';
 // 테스트
 const User = React.memo(function User({ user }) {
     const dispatch = useContext(UserDispatch);
     return (
         <div>
-            <b  style={{
+            <b style={{
                 cursor: 'pointer',
                 color: user.active ? 'green' : 'black'
             }}
-                onClick={() => {
-                    dispatch({type: 'TOGGLE_USER' , id: user.id});
-                }}
+               onClick={() => {
+                   dispatch({ type: 'TOGGLE_USER', id: user.id });
+               }}
             >
                 {user.username}
             </b>
             &nbsp;
             <span>({user.email})</span>
             <button onClick={() => {
-                        dispatch({type:'REMOVE_USER', id: user.id });
-                    }}
+                dispatch({ type: 'REMOVE_USER', id: user.id });
+            }}
             >
                 삭제
             </button>
