@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './css/styles.css';
-import App from './style/styledcomponent/App';
+import EmotionExample from './style/emotion/EmotionExample';
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(<EmotionExample/>,document.getElementById('root'));
