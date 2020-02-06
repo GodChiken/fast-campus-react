@@ -4,7 +4,7 @@ import React from 'react';
 
 const color = 'darkgreen';
 
-export default function emotionExample() {
+export default function EmotionExample() {
     return <div
         className={css({
             backgroundColor: 'hotpink',
